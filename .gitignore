@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+env/
+
+# Model artifacts / caches
+models/
+*.npz
+*.onnx
+*.joblib
+*.pkl
+.cache/
+hf_cache/
+
+# Data — never commit real chat exports or photos
+embedding-explorer/data/*
+!embedding-explorer/data/.gitkeep
+whatsapp-analyzer/data/*
+!whatsapp-analyzer/data/sample_chat.txt
+banknote-classifier/data/*
+!banknote-classifier/data/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,11 @@
+streamlit>=1.40
+numpy>=2.0
+pandas>=2.2
+scikit-learn>=1.5
+plotly>=5.24
+torch>=2.9
+
+# Optional third projection method. Pulls in numba, which is usually the last
+# package to support a new Python release — PCA and t-SNE are the defaults and
+# need nothing beyond scikit-learn.
+# umap-learn>=0.5
