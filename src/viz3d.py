@@ -31,12 +31,14 @@ def _scene(theme: Theme, method: str) -> dict:
         zerolinecolor=theme.axis,
         linecolor=theme.axis,
         tickfont=dict(color=theme.muted, size=10),
-        titlefont=dict(color=theme.muted, size=11),
     )
+    # Axis title styling lives under title.font; the old top-level `titlefont`
+    # shorthand was removed in Plotly 6.
+    title_font = dict(color=theme.muted, size=11)
     return dict(
-        xaxis={**axis, "title": xt},
-        yaxis={**axis, "title": yt},
-        zaxis={**axis, "title": zt},
+        xaxis={**axis, "title": dict(text=xt, font=title_font)},
+        yaxis={**axis, "title": dict(text=yt, font=title_font)},
+        zaxis={**axis, "title": dict(text=zt, font=title_font)},
         aspectmode="cube",
     )
 
@@ -326,12 +328,13 @@ def loss_curve(losses: list[float], theme: Theme, height: int = 260) -> go.Figur
                     line=dict(width=2, color=theme.surface)),
         hovertemplate="epoch %{x}<br>loss %{y:.4f}<extra></extra>",
     ))
-    fig.update_xaxes(title="Epoch", gridcolor=theme.grid, zeroline=False,
-                     tickfont=dict(color=theme.muted, size=11),
-                     titlefont=dict(color=theme.muted, size=11), dtick=1)
-    fig.update_yaxes(title="SGNS loss", gridcolor=theme.grid, zeroline=False,
-                     tickfont=dict(color=theme.muted, size=11),
-                     titlefont=dict(color=theme.muted, size=11))
+    title_font = dict(color=theme.muted, size=11)
+    fig.update_xaxes(title=dict(text="Epoch", font=title_font),
+                     gridcolor=theme.grid, zeroline=False,
+                     tickfont=dict(color=theme.muted, size=11), dtick=1)
+    fig.update_yaxes(title=dict(text="SGNS loss", font=title_font),
+                     gridcolor=theme.grid, zeroline=False,
+                     tickfont=dict(color=theme.muted, size=11))
     apply_layout(fig, theme, height=height, legend=False)
     fig.update_layout(margin=dict(l=0, r=0, t=10, b=0))
     return fig
