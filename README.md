@@ -1,3 +1,5 @@
+<div align=center>
+
 # Embedding Explorer
 
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
@@ -6,8 +8,12 @@
 
 Train word embeddings from scratch and explore them in an interactive 3D space.
 
+![](./media/screenshot.png)
+
+</div>
+
 Embedding Explorer implements skip-gram word2vec with negative sampling in
-PyTorch—without pretrained models or gensim. Use Tiny Shakespeare or provide
+PyTorch—without pretrained models or gensim. Use [Tiny Shakespeare](https://github.com/karpathy/char-rnn/blob/master/data/tinyshakespeare/input.txt) or provide
 your own text.
 
 ## Features
@@ -60,3 +66,9 @@ src/viz3d.py              Plotly visualizations
 train/fetch_data.py       Tiny Shakespeare downloader
 train/train_word2vec.py   Training CLI
 ```
+
+## License
+
+Released under [MIT License](./LICENSE.txt).
+
+&copy; 2026-present [Henry Hale](https://github.com/henryhale)
